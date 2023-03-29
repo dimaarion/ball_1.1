@@ -16,8 +16,12 @@ function App() {
   let Mouse = Matter.Mouse;
   let Bodies = Matter.Bodies;
   let engine, world;
+  let player = new Player();
 
-  const  preload = (p5) => { };
+
+  const  preload = (p5) => { 
+    player.loadImg(p5)
+  };
   const  setup = (p5, canvasParentRef) => {
     p5.createCanvas(window.innerWidth * 2, window.innerHeight * 2).parent(
       canvasParentRef
@@ -28,7 +32,7 @@ function App() {
     engine.gravity.y = 0.5;
     world = engine.world;
     Engine.run(engine);
-    Player({fs:"setup",world:world,p5:p5});
+    player.create(world)
     Walls({fs:"setup",world:world,p5:p5,name:"platform"})
    // console.log(scenaWidth);
   };
@@ -36,7 +40,7 @@ function App() {
 
   const  draw = (p5) => {
     p5.background(255);
-    Player({fs:"draw",world:world,p5:p5});
+    player.view(p5)
     Walls({fs:"draw",world:world,p5:p5,name:"platform"})
   };
 

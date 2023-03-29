@@ -60,9 +60,7 @@ export default class Animate {
       this.animated = false;
       this.img = this.p5.loadImage(this.name);
     }
-    animateArray(arr = []) {
-      this.img = arr.map((img) => this.p5.loadImage(img));
-    }
+    
   
     setupAnimate() {
       if (this.animated) {

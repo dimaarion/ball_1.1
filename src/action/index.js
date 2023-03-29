@@ -2,7 +2,7 @@ import scena from "../scena/scena.json";
 
 export const scenaWidth = scena.width * scena.tileheight;
 export const scenaHeigiht = scena.height * scena.tileheight;
-export const scenaSize = (scenaWidth + scenaHeigiht) / 1.2;
+export const scenaSize = (scenaWidth + scenaHeigiht) / 3;
 export function getObjects(name) {
     let layers = scena.layers;
     let nameObject = name;
