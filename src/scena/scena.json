@@ -523,13 +523,13 @@
       "objects": [
         {
           "ellipse": true,
-          "height": 50,
+          "height": 60,
           "id": 372,
           "name": "player",
           "rotation": 0,
           "type": "",
           "visible": true,
-          "width": 50,
+          "width": 100,
           "x": 69.701327368444,
           "y": 41.0665192729426
         }
