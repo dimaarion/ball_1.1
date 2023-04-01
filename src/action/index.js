@@ -54,3 +54,9 @@ export function procentInv(n, p) {
 export function size(num) {
   return procent(procentInv(scenaSize, num));
 }
+export function sizeX(num) {
+  return procentX(procentInv(scenaSize, num));
+}
+export function sizeY(num) {
+  return procentY(procentInv(scenaSize, num));
+}

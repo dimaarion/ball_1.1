@@ -1,5 +1,5 @@
 import Matter from "matter-js";
-import { getObjects, size } from "../action";
+import { getObjects, size, sizeX, sizeY } from "../action";
 import Animate from "./Animate";
 export default class Player {
   body = {};
@@ -35,13 +35,13 @@ export default class Player {
     this.getObj = getObjects("player");
     this.body = this.getObj.map((b) =>
       Matter.Bodies.rectangle(
-        size(b.x),
-        size(b.y + b.height / 2),
-        size(b.width),
-        size(b.height),
+        sizeX(b.x),
+        sizeY(b.y + b.height / 2),
+        sizeX(b.width),
+        sizeY(b.height),
         {
-          width: size(b.width),
-          height: size(b.height),
+          width: sizeX(b.width),
+          height: sizeY(b.height),
           label: "player",
           isStatic: false,
         }
