@@ -35,8 +35,8 @@ export function getProperties(name) {
 export function procentIn(n, p) {
   return (n / 100) * p;
 }
-export function procent(x) {
-  let r = window.innerWidth + window.innerHeight;
+export function procent(x,scale = 1) {
+  let r = window.innerWidth * scale;
   return procentIn(r, x);
 }
 export function procentX(x) {
@@ -51,8 +51,8 @@ export function procentInv(n, p) {
   return (p * 100) / n;
 }
 
-export function size(num) {
-  return procent(procentInv(scenaSize, num));
+export function size(num,scale) {
+  return procent(procentInv(scenaSize, num),scale);
 }
 export function sizeX(num) {
   return procentX(procentInv(scenaSize, num));

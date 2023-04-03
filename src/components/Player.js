@@ -1,12 +1,14 @@
 import Matter from "matter-js";
 import { getObjects, size, sizeX, sizeY } from "../action";
 import Animate from "./Animate";
-export default class Player {
+import Body from "./Body";
+export default class Player extends Body{
   body = {};
   scena = {};
   m = {};
   x = 100;
   y = 100;
+  static = false;
   width = 50;
   height = 50;
   radius = 50;
@@ -24,6 +26,9 @@ export default class Player {
   world;
   p5;
   animate = new Animate();
+  constructor(props){
+    super(props)
+  }
   loadImg(p5) {
     this.p5 = p5;
     this.animate.setup(p5);
