@@ -40,14 +40,20 @@ function App() {
     walls.createRect(world);
     block.createTrapezoid(world);
     map.create();
-    console.log(world);
+    console.log(player);
   };
 
   const draw = (p5) => {
     p5.background(255);
-    map.view(p5, 0, 0, 1250, 1250);
-    player.viewVertices(p5);
-    walls.viewVertices(p5);
+    //  map.view(p5, 0, 0, 1250, 1250);
+
+    player.viewEllipse(p5);
+    p5.translate(
+      -player.body[0].position.x + p5.width / 2,
+      -player.body[0].position.y + p5.height / 1.5
+    );
+    // player.translates(p5);
+    walls.viewRect(p5);
     block.viewVertices(p5);
   };
 

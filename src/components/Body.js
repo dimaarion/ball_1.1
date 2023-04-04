@@ -10,6 +10,20 @@ export default class Body {
   constructor(name) {
     this.name = name;
   }
+
+  translates(p5) {
+    if (this.world !== undefined) {
+      this.world.bodies
+        .filter((f) => f.label === this.name)
+        .map((b) =>
+          p5.translate(
+            -b.position.x + p5.width / 2,
+            -b.position.y + p5.height / 1.5
+          )
+        );
+    }
+  }
+
   createRect(world) {
     this.world = world;
     this.getObj = getObjects(this.name);
@@ -96,6 +110,7 @@ export default class Body {
 
   viewRect(p5) {
     if (this.world !== undefined) {
+      p5.fill("blue");
       p5.rectMode(p5.CENTER);
       this.world.bodies
         .filter((f) => f.label === this.name)
@@ -115,6 +130,7 @@ export default class Body {
 
   viewVertices(p5) {
     if (this.world !== undefined) {
+      p5.fill("red");
       p5.rectMode(p5.CENTER);
       this.world.bodies
         .filter((f) => f.label === this.name)
