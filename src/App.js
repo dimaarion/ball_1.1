@@ -19,7 +19,8 @@ function App() {
   let engine, world;
   let player = new Player("player");
   let map = new Map("bg", "./asset/level.png");
-  let walls = new Walls("platform")
+  let walls = new Walls("platform");
+  let block = new Walls("block");
 
   const preload = (p5) => {
     player.loadImg(p5);
@@ -35,18 +36,19 @@ function App() {
     engine.gravity.y = 0.5;
     world = engine.world;
     Engine.run(engine);
-    player.createRect(world);
-    walls.createRect(world)
+    player.createEllipse(world);
+    walls.createRect(world);
+    block.createVertices(world);
     map.create();
-     console.log(world);
+    console.log(world);
   };
 
   const draw = (p5) => {
     p5.background(255);
     map.view(p5, 0, 0, 1250, 1250);
-    player.view(p5);
-    walls.view(p5)
-    
+    player.viewEllipse(p5);
+    walls.view(p5);
+    block.viewVertices(p5);
   };
 
   const keyPressed = (e) => {};
