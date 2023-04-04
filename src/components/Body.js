@@ -36,7 +36,7 @@ export default class Body {
       Matter.Bodies.circle(
         size(b.x + b.width / 2, this.scale),
         size(b.y + b.height / 2, this.scale),
-        size(b.width, this.scale),
+        size(b.width / 2, this.scale),
         {
           width: size(b.width, this.scale),
           label: this.name,
@@ -56,7 +56,7 @@ export default class Body {
         size(b.y + b.height / 2, this.scale),
         size(b.width, this.scale),
         size(b.height, this.scale),
-        9,
+        1,
         {
           width: size(b.width, this.scale),
           height: size(b.height, this.scale),
@@ -108,23 +108,21 @@ export default class Body {
       this.world.bodies
         .filter((f) => f.label === this.name)
         .map((b) =>
-          p5.ellipse(
-            b.position.x - b.circleRadius / 2,
-            b.position.y + b.circleRadius / 2,
-            b.circleRadius / 2,
-            b.circleRadius / 2
-          )
+          p5.ellipse(b.position.x, b.position.y, b.circleRadius, b.circleRadius)
         );
     }
   }
 
   viewVertices(p5) {
     if (this.world !== undefined) {
-      p5.beginShape();
+      p5.rectMode(p5.CENTER);
       this.world.bodies
         .filter((f) => f.label === this.name)
-        .map((b) => b.vertices.map((v) => p5.vertex(v.x, v.y)));
-      p5.endShape(p5.CLOSE);
+        .map((b) => {
+          p5.beginShape();
+          b.vertices.map((v) => p5.vertex(v.x, v.y));
+          p5.endShape(p5.CLOSE);
+        });
     }
   }
 }
