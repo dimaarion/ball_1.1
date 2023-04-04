@@ -74,14 +74,8 @@ export default class Body {
     this.getObj = getObjects(this.name);
     this.body = this.getObj.map((b) =>
       Matter.Bodies.fromVertices(
-        size(
-          b.x,
-          this.scale
-        ),
-        size(
-          b.y + b.properties.filter((f) => f.name === "height")[0].value / 2,
-          this.scale
-        ),
+        size(b.x, this.scale),
+        size(b.y, this.scale),
         b.polygon.map((v, i) => {
           a[i] = {
             x: size(v.x, this.scale),
