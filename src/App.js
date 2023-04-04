@@ -44,7 +44,7 @@ function App() {
   };
 
   const draw = (p5) => {
-    p5.background(255);
+    p5.background(100);
     //  map.view(p5, 0, 0, 1250, 1250);
 
     player.viewEllipse(p5);
