@@ -498,8 +498,8 @@
                  "type":"st",
                  "visible":true,
                  "width":267.540191771683,
-                 "x":653.074233246849,
-                 "y":159.938198912775
+                 "x":819.074233246849,
+                 "y":143.938198912775
                 }, 
                 {
                  "height":46.04650803064,
@@ -572,43 +572,15 @@
          "name":"block",
          "objects":[
                 {
-                 "height":0,
-                 "id":590,
+                 "height":58,
+                 "id":594,
                  "name":"block",
-                 "polygon":[
-                        {
-                         "x":0,
-                         "y":0
-                        }, 
-                        {
-                         "x":150.577096481995,
-                         "y":0
-                        }, 
-                        {
-                         "x":220.563867000043,
-                         "y":42.4827674418605
-                        }, 
-                        {
-                         "x":-95.4362329999565,
-                         "y":44
-                        }],
-                 "properties":[
-                        {
-                         "name":"heigiht",
-                         "type":"int",
-                         "value":50
-                        }, 
-                        {
-                         "name":"width",
-                         "type":"int",
-                         "value":350
-                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":0,
-                 "x":155.020132999957,
-                 "y":164
+                 "width":244,
+                 "x":516,
+                 "y":86
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -617,7 +589,7 @@
          "y":0
         }],
  "nextlayerid":56,
- "nextobjectid":593,
+ "nextobjectid":596,
  "orientation":"orthogonal",
  "renderorder":"left-up",
  "tiledversion":"2021.03.23",

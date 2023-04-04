@@ -38,7 +38,7 @@ function App() {
     Engine.run(engine);
     player.createEllipse(world);
     walls.createRect(world);
-    block.createVertices(world);
+    block.createTrapezoid(world);
     map.create();
     console.log(world);
   };
@@ -48,7 +48,7 @@ function App() {
     map.view(p5, 0, 0, 1250, 1250);
     player.viewEllipse(p5);
     walls.view(p5);
-    block.viewVertices(p5);
+    //  block.viewVertices(p5);
   };
 
   const keyPressed = (e) => {};
