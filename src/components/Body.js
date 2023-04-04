@@ -7,8 +7,17 @@ export default class Body {
   body;
   static = true;
   scale = 1;
+  slope = 0.9;
+  n = 0;
   constructor(name) {
     this.name = name;
+  }
+
+  timer(num) {
+    if (this.n > num) {
+      this.n = 0;
+    }
+    return this.n++;
   }
 
   translates(p5) {
@@ -17,10 +26,18 @@ export default class Body {
         .filter((f) => f.label === this.name)
         .map((b) =>
           p5.translate(
-            -b.position.x + p5.width / 2,
-            -b.position.y + p5.height / 1.5
+            -b.position.x + (p5.windowWidth / 2 - b.width),
+            -b.position.y + (p5.windowHeight / 2 - b.width)
           )
         );
+    }
+  }
+
+  setRotate() {
+    if (this.world !== undefined) {
+      this.world.bodies
+        .filter((f) => f.label === this.name)
+        .map((b) => Matter.Body.setAngularVelocity(b, this.speed));
     }
   }
 
@@ -70,12 +87,13 @@ export default class Body {
         size(b.y + b.height / 2, this.scale),
         size(b.width, this.scale),
         size(b.height, this.scale),
-        1,
+        this.slope,
         {
           width: size(b.width, this.scale),
           height: size(b.height, this.scale),
           label: this.name,
           isStatic: this.static,
+          typeObject: b.type,
         }
       )
     );

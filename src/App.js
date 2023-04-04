@@ -6,22 +6,15 @@ import { scenaWidth, size } from "./action";
 import Player from "./components/Player";
 import Walls from "./components/Walls";
 import Map from "./components/Map";
+import Lift from "./components/Lift";
 function App() {
   let Engine = Matter.Engine;
-  let Render = Matter.Render;
-  let Runner = Matter.Runner;
-  let Composite = Matter.Composite;
-  let Composites = Matter.Composites;
-  let Common = Matter.Common;
-  let MouseConstraint = Matter.MouseConstraint;
-  let Mouse = Matter.Mouse;
-  let Bodies = Matter.Bodies;
   let engine, world;
   let player = new Player("player");
   let map = new Map("bg", "./asset/level.png");
   let walls = new Walls("platform");
   let block = new Walls("block");
-
+  let lift = new Lift("lift");
   const preload = (p5) => {
     player.loadImg(p5);
     map.loadImg(p5);
@@ -40,7 +33,8 @@ function App() {
     walls.createRect(world);
     block.createTrapezoid(world);
     map.create();
-    console.log(p5.windowHeight / 2);
+    lift.createTrapezoid(world);
+    lift.setup();
   };
 
   const draw = (p5) => {
@@ -48,22 +42,31 @@ function App() {
 
     //  p5.translate(200, 80);
     p5.rectMode(p5.CENTER);
-    p5.translate(
-      -player.body[0].position.x + (p5.windowWidth / 2 - player.body[0].width),
-      -player.body[0].position.y + (p5.windowHeight / 2 - player.body[0].width)
-    );
-    player.viewEllipse(p5);
+    player.translates(p5);
+    player.view(p5);
     // map.view(p5, 0, 0, 1250, 1250);
-    //  player.translates(p5);
     walls.viewRect(p5);
     block.viewVertices(p5);
+    lift.view(p5);
     //  p5.size(400, 400);
     //  p5.rect(-100, 0, 220, 220);
   };
 
-  const keyPressed = (e) => {};
+  const keyPressed = (e) => {
+    if (e.key === "ArrowRight") {
+      player.speed = 0.1;
+    } else if (e.key === "ArrowLeft") {
+      player.speed = -0.1;
+    }
+  };
 
-  const keyReleased = (e) => {};
+  const keyReleased = (e) => {
+    if (e.key === "ArrowRight") {
+      player.speed = 0;
+    } else if (e.key === "ArrowLeft") {
+      player.speed = 0;
+    }
+  };
 
   return (
     <div

@@ -264,8 +264,8 @@
                  "type":"",
                  "visible":true,
                  "width":50,
-                 "x":85.701327368444,
-                 "y":77.0665192729426
+                 "x":1111.70132736844,
+                 "y":1065.06651927294
                 }],
          "opacity":1,
          "tintcolor":"#aa0000",
@@ -379,8 +379,8 @@
                  "type":"st",
                  "visible":true,
                  "width":53,
-                 "x":1083.97108969607,
-                 "y":548.629782554979
+                 "x":305.97108969607,
+                 "y":512.629782554979
                 }, 
                 {
                  "height":541.783999011613,
@@ -579,8 +579,8 @@
                  "type":"",
                  "visible":true,
                  "width":244,
-                 "x":942,
-                 "y":1136
+                 "x":134,
+                 "y":1140
                 }, 
                 {
                  "height":58,
@@ -590,17 +590,41 @@
                  "type":"",
                  "visible":true,
                  "width":244,
-                 "x":950,
-                 "y":299
+                 "x":664,
+                 "y":1141
                 }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "color":"#005500",
+         "draworder":"topdown",
+         "id":56,
+         "name":"lift",
+         "objects":[
+                {
+                 "height":36,
+                 "id":597,
+                 "name":"lift",
+                 "rotation":0,
+                 "type":"1",
+                 "visible":true,
+                 "width":124,
+                 "x":1072,
+                 "y":1154
+                }],
+         "opacity":1,
+         "tintcolor":"#005500",
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":56,
- "nextobjectid":597,
+ "nextlayerid":57,
+ "nextobjectid":598,
  "orientation":"orthogonal",
  "renderorder":"left-up",
  "tiledversion":"2021.03.23",
