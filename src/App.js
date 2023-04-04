@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Sketch from "react-p5";
 import Matter from "matter-js";
-import { scenaWidth } from "./action";
+import { scenaWidth, size } from "./action";
 import Player from "./components/Player";
 import Walls from "./components/Walls";
 import Map from "./components/Map";
@@ -40,21 +40,25 @@ function App() {
     walls.createRect(world);
     block.createTrapezoid(world);
     map.create();
-    console.log(player);
+    console.log(p5.windowHeight / 2);
   };
 
   const draw = (p5) => {
-    p5.background(100);
-    //  map.view(p5, 0, 0, 1250, 1250);
+    p5.background(255);
 
-    player.viewEllipse(p5);
+    //  p5.translate(200, 80);
+    p5.rectMode(p5.CENTER);
     p5.translate(
-      -player.body[0].position.x + p5.width / 2,
-      -player.body[0].position.y + p5.height / 1.5
+      -player.body[0].position.x + (p5.windowWidth / 2 - player.body[0].width),
+      -player.body[0].position.y + (p5.windowHeight / 2 - player.body[0].width)
     );
-    // player.translates(p5);
+    player.viewEllipse(p5);
+    // map.view(p5, 0, 0, 1250, 1250);
+    //  player.translates(p5);
     walls.viewRect(p5);
     block.viewVertices(p5);
+    //  p5.size(400, 400);
+    //  p5.rect(-100, 0, 220, 220);
   };
 
   const keyPressed = (e) => {};
