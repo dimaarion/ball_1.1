@@ -6,11 +6,16 @@ export default class Body {
   getObj;
   body;
   static = true;
+  sensor = false;
   scale = 1;
   slope = 0.9;
   n = 0;
   constructor(name) {
     this.name = name;
+  }
+
+  main(world){
+    this.world = world;
   }
 
   timer(num) {
@@ -55,11 +60,15 @@ export default class Body {
           height: size(b.height, this.scale),
           label: this.name,
           isStatic: this.static,
+          isSensor:this.sensor,
+          typeObject: b.type,
         }
       )
     );
     Matter.World.add(this.world, this.body);
   }
+
+
   createEllipse(world) {
     this.world = world;
     this.getObj = getObjects(this.name);
@@ -72,6 +81,8 @@ export default class Body {
           width: size(b.width, this.scale),
           label: this.name,
           isStatic: this.static,
+          isSensor:this.sensor,
+          typeObject: b.type,
         }
       )
     );
@@ -93,6 +104,7 @@ export default class Body {
           height: size(b.height, this.scale),
           label: this.name,
           isStatic: this.static,
+          isSensor:this.sensor,
           typeObject: b.type,
         }
       )
@@ -120,6 +132,8 @@ export default class Body {
           height: size(b.height, this.scale),
           label: this.name,
           isStatic: this.static,
+          isSensor:this.sensor,
+          typeObject: b.type,
         }
       )
     );

@@ -25,6 +25,8 @@ export default class Lift extends Body {
   img;
   world;
   p5;
+  engine;
+  liftPlayer = [{}];
   animate = new Animate();
   constructor(props) {
     super(props);
@@ -34,25 +36,38 @@ export default class Lift extends Body {
     // this.animate.setup(p5);
     // this.animate.animateE(this.image);
   }
-  setup() {
-    console.log(this.body);
+  setup(engine) {
+    this.engine = engine;
+    this.slope = .2;
+    this.liftPlayer = this.world.bodies.filter((f)=>f.label === "player");
+    Matter.Events.on(this.engine,'collisionActive',(event)=>{
+      var pairs = event.pairs;
+      for (var i = 0, j = pairs.length; i != j; ++i) {
+        var pair = pairs[i];
+        if (pair.bodyA.label === "player") {
+
+         // Matter.Body.setVelocity(pair.bodyA,{x:0,y:-10});// console.log(pair.bodyA)
+        }
+    }
+      
+    })
+
+   
   }
 
   view(p5) {
-    this.slope = 0.4;
     this.viewVertices(p5);
+ let lift = {}
+ let player = {}
     if (this.body.length > 0) {
-      let t = this.timer(600);
-      if (t < 300) {
+      let t = false;
+      
+      if (t) {
         this.body
           .filter((f) => f.typeObject === "1")
-          .map((b) => Matter.Body.translate(b, { x: 0, y: -1 }));
-      } else {
-        this.body
-          .filter((f) => f.typeObject === "1")
-          .map((b) => Matter.Body.translate(b, { x: 0, y: 1 }));
-      }
-      console.log(t);
+          .map((b) => Matter.Body.translate(b, { x: 0, y: -0.1 }));
+      } 
+     
     }
   }
 }

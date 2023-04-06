@@ -9,6 +9,7 @@ export default class Walls extends Body{
   x = 100;
   y = 100;
   static = true;
+  sensor = false;
   width = 50;
   height = 50;
   radius = 50;

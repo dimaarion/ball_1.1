@@ -14,6 +14,7 @@ function App() {
   let map = new Map("bg", "./asset/level.png");
   let walls = new Walls("platform");
   let block = new Walls("block");
+  let liftPoint = new Walls("liftPoint");
   let lift = new Lift("lift");
   const preload = (p5) => {
     player.loadImg(p5);
@@ -32,15 +33,18 @@ function App() {
     player.createEllipse(world);
     walls.createRect(world);
     block.createTrapezoid(world);
-    map.create();
+    map.create(); 
     lift.createTrapezoid(world);
-    lift.setup();
+    lift.setup(engine);
+    liftPoint.createRect(world);
+    liftPoint.sensor = true;
+    
   };
 
   const draw = (p5) => {
     p5.background(255);
 
-    //  p5.translate(200, 80);
+    
     p5.rectMode(p5.CENTER);
     player.translates(p5);
     player.view(p5);
@@ -48,8 +52,7 @@ function App() {
     walls.viewRect(p5);
     block.viewVertices(p5);
     lift.view(p5);
-    //  p5.size(400, 400);
-    //  p5.rect(-100, 0, 220, 220);
+    liftPoint.viewRect(p5)
   };
 
   const keyPressed = (e) => {
