@@ -27,18 +27,18 @@ function App() {
 
     // p5.frameRate(this.fr);
     engine = Engine.create();
-    engine.gravity.y = 0.5;
+    engine.gravity.y = 2;
     world = engine.world;
     Engine.run(engine);
     player.createEllipse(world);
     walls.createRect(world);
     block.createTrapezoid(world);
     map.create(); 
-    lift.createTrapezoid(world);
+    lift.createRect(world);
     lift.setup(engine);
     liftPoint.createRect(world);
     liftPoint.sensor = true;
-    
+    //liftPoint.static = false;
   };
 
   const draw = (p5) => {

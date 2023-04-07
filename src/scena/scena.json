@@ -456,8 +456,8 @@
                  "type":"",
                  "visible":true,
                  "width":50,
-                 "x":967.109077513032,
-                 "y":1072.29613176571
+                 "x":1109.10907751303,
+                 "y":888.29613176571
                 }],
          "opacity":1,
          "tintcolor":"#aa0000",
@@ -798,37 +798,48 @@
          "name":"lift",
          "objects":[
                 {
-                 "height":36,
+                 "height":12,
                  "id":597,
                  "name":"lift",
                  "rotation":0,
                  "type":"1",
                  "visible":true,
                  "width":124,
-                 "x":1072,
-                 "y":1154
+                 "x":1068,
+                 "y":1178
                 }, 
                 {
                  "height":60,
                  "id":598,
                  "name":"liftPoint",
                  "rotation":0,
-                 "type":"2",
+                 "type":"4",
                  "visible":true,
                  "width":136,
-                 "x":1060,
-                 "y":142
+                 "x":1054,
+                 "y":258
                 }, 
                 {
-                 "height":46,
+                 "height":36,
                  "id":599,
                  "name":"liftPoint",
                  "rotation":0,
                  "type":"1",
                  "visible":true,
                  "width":148,
-                 "x":1052,
-                 "y":1150
+                 "x":1050,
+                 "y":1172
+                }, 
+                {
+                 "height":60,
+                 "id":600,
+                 "name":"liftPoint",
+                 "rotation":0,
+                 "type":"0",
+                 "visible":true,
+                 "width":136,
+                 "x":196,
+                 "y":260
                 }],
          "opacity":1,
          "tintcolor":"#005500",
@@ -838,7 +849,7 @@
          "y":0
         }],
  "nextlayerid":57,
- "nextobjectid":600,
+ "nextobjectid":601,
  "orientation":"orthogonal",
  "renderorder":"left-up",
  "tiledversion":"1.8.4",
