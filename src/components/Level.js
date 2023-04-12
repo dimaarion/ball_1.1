@@ -12,20 +12,20 @@ export default class Level {
 
   preload(p5) {
     this.player.loadImg(p5);
-    this.map.loadImg(p5);
+    //  this.map.loadImg(p5);
   }
 
   create(world, engine) {
     this.player.createEllipse(world);
     this.walls.createRect(world);
-    this.map.create();
+    //this.map.create();
   }
 
   view(p5) {
     p5.background(102, 98, 97);
     p5.rectMode(p5.CENTER);
     this.player.translates(p5);
-    this.map.view(p5);
+    //  this.map.view(p5);
     this.walls.viewRect(p5);
     this.player.view(p5);
   }

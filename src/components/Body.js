@@ -7,7 +7,7 @@ export default class Body {
   body;
   static = true;
   sensor = false;
-  scale = 1;
+  scale = 20;
   slope = 0.9;
   n = 0;
   constructor(name) {
