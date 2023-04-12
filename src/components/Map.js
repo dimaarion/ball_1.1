@@ -22,9 +22,9 @@ export default class Map {
 
   create() {}
 
-  view(p5, x, y, width, height) {
+  view(p5) {
     if (this.image) {
-      p5.image(this.image, x, y, size(scenaWidth), size(scenaHeigiht));
+      p5.image(this.image, 0, 0, size(scenaWidth), size(scenaHeigiht));
     }
   }
 }

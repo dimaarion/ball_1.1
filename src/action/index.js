@@ -1,4 +1,4 @@
-import scena from "../scena/scena.json";
+import scena from "../scena/scena2.json";
 
 export const scenaWidth = scena.width * scena.tileheight;
 export const scenaHeigiht = scena.height * scena.tileheight;
@@ -16,7 +16,7 @@ export function getObjects(name) {
   return arrObject;
 }
 
-export function getObjectsType(name,type) {
+export function getObjectsType(name, type) {
   let layers = scena.layers;
   let nameObject = name;
   let arrObject = [];
@@ -24,7 +24,9 @@ export function getObjectsType(name,type) {
     .map((x) => x.objects)
     .filter((f) => f !== undefined);
   layersObjects.map((x, i) =>
-    x.filter((f2) => f2.name === nameObject && f2.type === type).map((x2, j) => (arrObject[j] = x2))
+    x
+      .filter((f2) => f2.name === nameObject && f2.type === type)
+      .map((x2, j) => (arrObject[j] = x2))
   );
   return arrObject;
 }
@@ -48,7 +50,7 @@ export function getProperties(name) {
 export function procentIn(n, p) {
   return (n / 100) * p;
 }
-export function procent(x,scale = 1) {
+export function procent(x, scale = 1) {
   let r = window.innerWidth * scale;
   return procentIn(r, x);
 }
@@ -64,8 +66,8 @@ export function procentInv(n, p) {
   return (p * 100) / n;
 }
 
-export function size(num,scale) {
-  return procent(procentInv(scenaSize, num),scale);
+export function size(num, scale) {
+  return procent(procentInv(scenaSize, num), scale);
 }
 export function sizeX(num) {
   return procentX(procentInv(scenaSize, num));
@@ -90,16 +92,7 @@ export const collideRectRect = function (x, y, w, h, x2, y2, w2, h2) {
 };
 
 export const collideRectRectVector = function (p1, sz, p2, sz2) {
-  return this.collideRectRect(
-    p1.x,
-    p1.y,
-    sz.x,
-    sz.y,
-    p2.x,
-    p2.y,
-    sz2.x,
-    sz2.y
-  );
+  return this.collideRectRect(p1.x, p1.y, sz.x, sz.y, p2.x, p2.y, sz2.x, sz2.y);
 };
 
 export const collideRectCircle = function (rx, ry, rw, rh, cx, cy, diameter) {

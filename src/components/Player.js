@@ -37,8 +37,16 @@ export default class Player extends Body {
 
   view(p5) {
     this.animate.params();
-    p5.fill(0);
-    this.viewVertices(p5);
+    p5.push();
+    p5.noStroke();
+    p5.fill(207, 7, 99);
+    p5.drawingContext.shadowOffsetX = 0;
+    p5.drawingContext.shadowOffsetY = 0;
+    p5.drawingContext.shadowBlur = 15;
+    p5.drawingContext.shadowColor = p5.color(207, 7, 99);
+    this.viewEllipse(p5);
+    this.setRotate();
+    p5.pop();
     //   p5.fill(110);
     //  p5.rectMode(p5.CENTER);
 
@@ -46,7 +54,6 @@ export default class Player extends Body {
     //  this.world.bodies
     //    .filter((f) => f.label === "player")
     //    .map((b) => p5.rect(b.position.x, b.position.y, b.width, b.width));
-    this.setRotate();
 
     //  this.world.bodies
     //    .filter((f) => f.label === "player")

@@ -14,7 +14,7 @@ export default class Body {
     this.name = name;
   }
 
-  main(world){
+  main(world) {
     this.world = world;
   }
 
@@ -60,14 +60,13 @@ export default class Body {
           height: size(b.height, this.scale),
           label: this.name,
           isStatic: this.static,
-          isSensor:this.sensor,
+          isSensor: this.sensor,
           typeObject: b.type,
         }
       )
     );
     Matter.World.add(this.world, this.body);
   }
-
 
   createEllipse(world) {
     this.world = world;
@@ -81,7 +80,7 @@ export default class Body {
           width: size(b.width, this.scale),
           label: this.name,
           isStatic: this.static,
-          isSensor:this.sensor,
+          isSensor: this.sensor,
           typeObject: b.type,
         }
       )
@@ -104,7 +103,7 @@ export default class Body {
           height: size(b.height, this.scale),
           label: this.name,
           isStatic: this.static,
-          isSensor:this.sensor,
+          isSensor: this.sensor,
           typeObject: b.type,
         }
       )
@@ -132,7 +131,7 @@ export default class Body {
           height: size(b.height, this.scale),
           label: this.name,
           isStatic: this.static,
-          isSensor:this.sensor,
+          isSensor: this.sensor,
           typeObject: b.type,
         }
       )
@@ -142,7 +141,6 @@ export default class Body {
 
   viewRect(p5) {
     if (this.world !== undefined) {
-      p5.fill("blue");
       p5.rectMode(p5.CENTER);
       this.world.bodies
         .filter((f) => f.label === this.name)
@@ -162,7 +160,6 @@ export default class Body {
 
   viewVertices(p5) {
     if (this.world !== undefined) {
-      p5.fill("red");
       p5.rectMode(p5.CENTER);
       this.world.bodies
         .filter((f) => f.label === this.name)
