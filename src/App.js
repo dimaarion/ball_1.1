@@ -2,10 +2,7 @@ import "./App.css";
 import Sketch from "react-p5";
 import Matter from "matter-js";
 import Level from "./components/Level";
-import Player from "./components/Player";
-import Walls from "./components/Walls";
-import Map from "./components/Map";
-import Lift from "./components/Lift";
+import { scenaSize, size } from "./action/index";
 function App() {
   let Engine = Matter.Engine;
   let engine, world;
@@ -14,7 +11,7 @@ function App() {
     level.preload(p5);
   };
   const setup = (p5, canvasParentRef) => {
-    p5.createCanvas(window.innerWidth * 2, window.innerHeight * 2).parent(
+    p5.createCanvas(size(scenaSize) * 2, size(scenaSize) * 2).parent(
       canvasParentRef
     );
 
