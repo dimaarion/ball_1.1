@@ -1,5 +1,6 @@
 import Matter from "matter-js";
 import { getObjects, size } from "../action";
+import Scena from "./Scena";
 export default class Body {
   name;
   world;
@@ -7,9 +8,10 @@ export default class Body {
   body;
   static = true;
   sensor = false;
-  scale = 10;
+  scale = 1;
   slope = 0.9;
   n = 0;
+  scena
   constructor(name) {
     this.name = name;
   }

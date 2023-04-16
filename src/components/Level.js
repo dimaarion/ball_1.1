@@ -2,6 +2,7 @@ import Player from "./Player";
 import Walls from "./Walls";
 import Map from "./Map";
 import Lift from "./Lift";
+import Scena from "./Scena";
 export default class Level {
   player = new Player("player");
   map = new Map("bg", "./asset/level.png");
@@ -9,16 +10,21 @@ export default class Level {
   block = new Walls("block");
   liftPoint = new Walls("liftPoint");
   lift = new Lift("lift");
-
+  scena = new Scena("./asset/scena.json");
+  
   preload(p5) {
     this.player.loadImg(p5);
-    //  this.map.loadImg(p5);
+    this.scena.preload(p5);
+  
+  
   }
 
   create(world, engine) {
+    this.scena.create();
     this.player.createEllipse(world);
     this.walls.createRect(world);
     //this.map.create();
+     
   }
 
   view(p5) {
