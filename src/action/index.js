@@ -1,4 +1,4 @@
-import scena from "../scena/scena2.json";
+import scena from "../scena/scena.json";
 
 export const scenaWidth = scena.width * scena.tileheight;
 export const scenaHeigiht = scena.height * scena.tileheight;
