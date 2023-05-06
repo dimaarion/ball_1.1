@@ -8,10 +8,10 @@ export default class Body {
   body;
   static = true;
   sensor = false;
-  scale = 1;
+  scale = 50;
   slope = 0.9;
   n = 0;
-  scena
+  scena;
   constructor(name) {
     this.name = name;
   }

@@ -11,9 +11,7 @@ function App() {
     level.preload(p5);
   };
   const setup = (p5, canvasParentRef) => {
-    p5.createCanvas(size(scenaSize) * 2, size(scenaSize) * 2).parent(
-      canvasParentRef
-    );
+    p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
 
     // p5.frameRate(this.fr);
     engine = Engine.create();
