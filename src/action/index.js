@@ -138,3 +138,7 @@ export const collidePointRect = function (pointX, pointY, x, y, xW, yW) {
   }
   return false;
 };
+
+export const getRndInteger = function (min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};

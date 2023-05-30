@@ -50,7 +50,7 @@ export default class Body {
 
   createRect(world, scena) {
     this.world = world;
-    this.getObj = getObjects(this.name);
+    this.getObj = scena.getObjects(this.name);
     this.body = this.getObj.map((b) =>
       Matter.Bodies.rectangle(
         size(b.x + b.width / 2, this.scale),
@@ -70,9 +70,9 @@ export default class Body {
     Matter.World.add(this.world, this.body);
   }
 
-  createEllipse(world) {
+  createEllipse(world, scena) {
     this.world = world;
-    this.getObj = getObjects(this.name);
+    this.getObj = scena.getObjects(this.name);
     this.body = this.getObj.map((b) =>
       Matter.Bodies.circle(
         size(b.x + b.width / 2, this.scale),
@@ -90,9 +90,9 @@ export default class Body {
     Matter.World.add(this.world, this.body);
   }
 
-  createTrapezoid(world) {
+  createTrapezoid(world, scena) {
     this.world = world;
-    this.getObj = getObjects(this.name);
+    this.getObj = scena.getObjects(this.name);
     this.body = this.getObj.map((b) =>
       Matter.Bodies.trapezoid(
         size(b.x + b.width / 2, this.scale),
@@ -113,10 +113,10 @@ export default class Body {
     Matter.World.add(this.world, this.body);
   }
 
-  createVertices(world) {
+  createVertices(world, scena) {
     let a = [{}];
     this.world = world;
-    this.getObj = getObjects(this.name);
+    this.getObj = scena.getObjects(this.name);
     this.body = this.getObj.map((b) =>
       Matter.Bodies.fromVertices(
         size(b.x, this.scale),

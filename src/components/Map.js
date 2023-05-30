@@ -7,12 +7,12 @@ export default class Map {
   name;
   img;
   image;
-  constructor(name, img) {
+  constructor(img) {
     this.img = img;
-    this.name = name;
+    this.name = "";
   }
-  loadImg(p5) {
-    this.image = p5.loadImage(this.img);
+  loadImg(p5, img) {
+    this.image = p5.loadImage(img);
     if (getObject(this.name).length !== 0) {
       //  console.log(getObject(this.name));
     } else {
