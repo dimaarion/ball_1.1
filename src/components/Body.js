@@ -1,5 +1,5 @@
 import Matter from "matter-js";
-import { getObjects, size } from "../action";
+import { scale, size } from "../action";
 import Scena from "./Scena";
 export default class Body {
   name;
@@ -53,13 +53,13 @@ export default class Body {
     this.getObj = scena.getObjects(this.name);
     this.body = this.getObj.map((b) =>
       Matter.Bodies.rectangle(
-        size(b.x + b.width / 2, this.scale),
-        size(b.y + b.height / 2, this.scale),
-        size(b.width, this.scale),
-        size(b.height, this.scale),
+        size(b.x + b.width / 2, scale),
+        size(b.y + b.height / 2, scale),
+        size(b.width, scale),
+        size(b.height, scale),
         {
-          width: size(b.width, this.scale),
-          height: size(b.height, this.scale),
+          width: size(b.width, scale),
+          height: size(b.height, scale),
           label: this.name,
           isStatic: this.static,
           isSensor: this.sensor,
@@ -75,11 +75,11 @@ export default class Body {
     this.getObj = scena.getObjects(this.name);
     this.body = this.getObj.map((b) =>
       Matter.Bodies.circle(
-        size(b.x + b.width / 2, this.scale),
-        size(b.y + b.height / 2, this.scale),
-        size(b.width / 2, this.scale),
+        size(b.x + b.width / 2, scale),
+        size(b.y + b.height / 2, scale),
+        size(b.width / 2, scale),
         {
-          width: size(b.width, this.scale),
+          width: size(b.width, scale),
           label: this.name,
           isStatic: this.static,
           isSensor: this.sensor,
@@ -95,14 +95,14 @@ export default class Body {
     this.getObj = scena.getObjects(this.name);
     this.body = this.getObj.map((b) =>
       Matter.Bodies.trapezoid(
-        size(b.x + b.width / 2, this.scale),
-        size(b.y + b.height / 2, this.scale),
-        size(b.width, this.scale),
-        size(b.height, this.scale),
+        size(b.x + b.width / 2, scale),
+        size(b.y + b.height / 2, scale),
+        size(b.width, scale),
+        size(b.height, scale),
         this.slope,
         {
-          width: size(b.width, this.scale),
-          height: size(b.height, this.scale),
+          width: size(b.width, scale),
+          height: size(b.height, scale),
           label: this.name,
           isStatic: this.static,
           isSensor: this.sensor,
@@ -119,18 +119,18 @@ export default class Body {
     this.getObj = scena.getObjects(this.name);
     this.body = this.getObj.map((b) =>
       Matter.Bodies.fromVertices(
-        size(b.x, this.scale),
-        size(b.y, this.scale),
+        size(b.x, scale),
+        size(b.y, scale),
         b.polygon.map((v, i) => {
           a[i] = {
-            x: size(v.x, this.scale),
-            y: size(v.y, this.scale),
+            x: size(v.x, scale),
+            y: size(v.y, scale),
           };
           return a;
         }),
         {
-          width: size(b.width, this.scale),
-          height: size(b.height, this.scale),
+          width: size(b.width, scale),
+          height: size(b.height, scale),
           label: this.name,
           isStatic: this.static,
           isSensor: this.sensor,

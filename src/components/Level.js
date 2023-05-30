@@ -6,6 +6,7 @@ import Portal from "./Portal";
 import Scena from "./Scena";
 import Events from "./Events";
 import Animate from "./Animate";
+import { size, scale } from "../action/index";
 export default class Level {
   player = new Player("player");
   map = new Map("bg", "./asset/level.png");
@@ -51,14 +52,15 @@ export default class Level {
   view(p5) {
     p5.background(102, 98, 97);
     p5.rectMode(p5.CENTER);
+
+    this.player.translates(p5);
     p5.image(
       this.animate.sprite(),
-      0,
-      0,
-      this.scena.scenaWidth,
-      this.scena.scenaHeigiht
+      -window.innerWidth / 2,
+      -window.innerHeight / 2,
+      size(this.scena.scenaWidth, scale) + window.innerWidth,
+      size(this.scena.scenaHeigiht, scale) + window.innerHeight
     );
-    this.player.translates(p5);
     //  this.map.view(p5);
     this.walls.viewRect(p5);
     this.player.view(p5);
