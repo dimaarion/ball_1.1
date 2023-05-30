@@ -2,6 +2,7 @@ import Player from "./Player";
 import Walls from "./Walls";
 import Map from "./Map";
 import Lift from "./Lift";
+import Portal from "./Portal";
 import Scena from "./Scena";
 export default class Level {
   player = new Player("player");
@@ -14,25 +15,26 @@ export default class Level {
   lift2 = new Lift("lift2");
   lift3 = new Lift("lift3");
   lift4 = new Lift("lift4");
+  portal = new Portal("portal");
   scena = new Scena("./asset/scena.json");
 
   preload(p5) {
     this.player.loadImg(p5);
     this.scena.preload(p5);
-    this.lift.speedCalculation(p5);
   }
 
   create(world, engine) {
     this.scena.create();
     this.player.createEllipse(world);
-    this.walls.createRect(world);
-    this.lift.createRect(world);
-    this.lift2.createRect(world);
-    this.lift3.createRect(world);
-    this.lift4.createRect(world);
+    this.walls.createRect(world, scena);
+    this.lift.createRect(world, scena);
+    this.lift2.createRect(world, scena);
+    this.lift3.createRect(world, scena);
+    this.lift4.createRect(world, scena);
+    this.portal.createRect(world, scena);
     this.lift.setup(engine);
-    this.pointB.createRect(world);
-    this.pointT.createRect(world);
+    this.pointB.createRect(world, scena);
+    this.pointT.createRect(world, scena);
     this.pointB.sensor = true;
     this.pointT.sensor = true;
     //this.map.create();
@@ -55,6 +57,7 @@ export default class Level {
     this.lift2.view(p5);
     this.lift3.view(p5);
     this.lift4.view(p5);
+    this.portal.viewRect(p5);
   }
 
   pressed(e) {
