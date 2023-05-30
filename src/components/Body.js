@@ -48,7 +48,7 @@ export default class Body {
     }
   }
 
-  createRect(world) {
+  createRect(world, scena) {
     this.world = world;
     this.getObj = getObjects(this.name);
     this.body = this.getObj.map((b) =>
