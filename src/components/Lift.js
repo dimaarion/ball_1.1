@@ -43,7 +43,11 @@ export default class Lift extends Body {
   setup(engine) {
     // this.engine = engine;
     // this.slope = 0.6;
-    console.log(this.world);
+  }
+
+  speedCalculation(p5) {
+    let p = (p5.windowWidth + p5.windowHeight) / 2000;
+    return p;
   }
 
   view(p5) {
@@ -86,9 +90,13 @@ export default class Lift extends Body {
         });
 
       if (this.direction === 1) {
-        this.body.map((b) => Matter.Body.translate(b, { x: 0, y: -1 }));
+        this.body.map((b) =>
+          Matter.Body.translate(b, { x: 0, y: -this.speedCalculation(p5) })
+        );
       } else if (this.direction === 2) {
-        this.body.map((b) => Matter.Body.translate(b, { x: 0, y: 0.5 }));
+        this.body.map((b) =>
+          Matter.Body.translate(b, { x: 0, y: this.speedCalculation(p5) / 2 })
+        );
       } else if (this.direction === 0) {
         Matter.Body.translate(this.body[0], { x: 0, y: 0 });
       } else if (this.direction === 0) {

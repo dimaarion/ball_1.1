@@ -19,6 +19,7 @@ export default class Level {
   preload(p5) {
     this.player.loadImg(p5);
     this.scena.preload(p5);
+    this.lift.speedCalculation(p5);
   }
 
   create(world, engine) {
